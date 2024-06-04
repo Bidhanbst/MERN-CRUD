@@ -22,10 +22,12 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
 
-      - name: Build and push Docker image
+      - name: Build and push
         uses: docker/build-push-action@v5
         with:
-          context: .
-          file: ./client/Dockerfile
-          push: true
-          tags: bidhanbst/client:{{  github.run_number }}
+         context: .
+         file: ./client/Dockerfile
+         push: true
+         tags: |
+          ${{ secrets.DOCKERHUB_USERNAME }}/client:${{ github.run_number }}
+          
