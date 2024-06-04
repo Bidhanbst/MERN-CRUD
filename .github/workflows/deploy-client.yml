@@ -2,8 +2,8 @@ name: Build and Push Node.js Docker Image
 
 on:
   push:
-    branches:
-      - main
+    paths:
+      - 'client/**'
 
 jobs:
   build-and-push:
@@ -26,6 +26,6 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: .
-          file: ./Dockerfile
+          file: ./client/Dockerfile
           push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/my-node-app:latest
+          tags: ${{ secrets.DOCKER_USERNAME }}/client:latest
