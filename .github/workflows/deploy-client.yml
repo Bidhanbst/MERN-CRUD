@@ -28,4 +28,4 @@ jobs:
           context: .
           file: ./client/Dockerfile
           push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/client:latest
+          tags: bidhanbst/client:latest
