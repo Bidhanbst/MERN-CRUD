@@ -28,4 +28,4 @@ jobs:
           context: .
           file: ./client/Dockerfile
           push: true
-          tags: bidhanbst/client:latest
+          tags: bidhanbst/client:{{  github.run_number }}
