@@ -1,4 +1,4 @@
-name: Build and Push Node.js client Docker Image
+name: Deploy Node.js client Docker Image
 
 on:
   push:
