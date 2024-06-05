@@ -10,7 +10,7 @@ USER node
 
 COPY --chown=node:node . .
 
-RUN npm install
+RUN npm install save
 
 COPY --chown=node:node . .
 
