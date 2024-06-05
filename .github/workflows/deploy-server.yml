@@ -3,7 +3,7 @@ name: Deploy Node.js server Docker Image
 on:
   push:
     paths:
-      - 'client/**'
+      - 'server/**'
 
 jobs:
   build-and-push:
