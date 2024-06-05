@@ -15,5 +15,4 @@ RUN npm install save
 COPY --chown=node:node . .
 
 EXPOSE 8080
-
 CMD [ "node", "index.js" ]
