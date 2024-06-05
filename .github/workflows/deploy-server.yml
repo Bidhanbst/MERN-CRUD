@@ -1,9 +1,9 @@
-name: Deploy nodejs server Docker Image
+name: Deploy Node.js server Docker Image
 
 on:
   push:
     paths:
-      - 'server/**'
+      - 'client/**'
 
 jobs:
   build-and-push:
@@ -22,10 +22,11 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
 
-      - name: Build and push Docker image
+      - name: Build and push
         uses: docker/build-push-action@v5
         with:
-          context: .
-          file: ./server/Dockerfile
-          push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/server:latest
+         context: .
+         file: ./server/Dockerfile
+         push: true
+         tags: |
+          ${{ secrets.DOCKERHUB_USERNAME }}/server:${{ github.run_number }}
