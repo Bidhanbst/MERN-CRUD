@@ -12,6 +12,10 @@ spec:
       labels:
         app: server
     spec:
+      volumes:
+      - name: secret
+        secret:
+         secretName: mysecret
       containers:
       - name: server
         image: bidhanbst/server:1.0.0
@@ -21,3 +25,6 @@ spec:
             cpu: "100m"
         ports:
         - containerPort: 8080
+        volumeMounts:
+        - name: mysecret
+          mountPath: /home/node/app
